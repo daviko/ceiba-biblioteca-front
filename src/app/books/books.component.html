@@ -1,0 +1,39 @@
+<div class="spacer20"></div>
+<div class="container">
+  <div class="page-header">
+    <div class="row">
+      <div class="col-md-10"><h1>{{"forms.available_books" | translate}}</h1></div>
+      <div class="col-md-2">
+        <button class="btn btn-primary pull-right" [routerLink]="['/books-form', -1]">
+          {{"forms.new" | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">{{"forms.isbn" | translate}}</th>
+        <th scope="col">{{"forms.name" | translate}}</th>
+        <th scope="col">{{"forms.inventory" | translate}}</th>
+        <th scope="col">{{"forms.available" | translate}}</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.isbn }}</td>
+        <td>{{ book.nombre }}</td>
+        <td>{{ book.cantidadInventario }}</td>
+        <td>{{ book.cantidadDisponible }}</td>
+        <td>
+          <button class="btn btn-primary" [routerLink]="['/books-form', book.isbn]">{{"forms.edit" | translate}}</button>
+        </td>
+        <td>          
+          <button class="btn btn-danger" (click)="confirmDelete(book.isbn)">{{"forms.delete" | translate}}</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,32 @@
+<div class="spacer20"></div>
+<div class="container">
+  <div class="page-header">
+    <div class="row">
+      <div class="col-md-10"><h1>{{"forms.loans" | translate}}</h1></div>
+      <div class="col-md-2">
+        <button class="btn btn-primary pull-right" routerLink="/books-loan">
+          {{"forms.new" | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">{{"forms.isbn" | translate}}</th>
+        <th scope="col">{{"forms.request_date" | translate}}</th>
+        <th scope="col">{{"forms.delivery_date" | translate}}</th>
+        <th scope="col">{{"forms.user_name" | translate}}</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let loan of loans">
+        <td>{{ loan.isbn }}</td>
+        <td>{{ loan.fechaSolicitud | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ loan.fechaEntrega | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ loan.nombreUsuario }}</td>        
+      </tr>
+    </tbody>
+  </table>
+</div>
